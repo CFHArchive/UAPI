@@ -14,6 +14,7 @@ public class BukkitPluginLoader extends JavaPlugin implements UPluginLoader {
 		BukkitServer server = new BukkitServer(this);
 		
 		try {
+			//TODO: Configuration
 			Class<?> main = Class.forName("");
 			instance = (UPlugin)main.newInstance();
 			instance.onEnable(server);
