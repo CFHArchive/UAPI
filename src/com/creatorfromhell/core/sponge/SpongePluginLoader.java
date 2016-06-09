@@ -5,8 +5,8 @@ import org.spongepowered.api.plugin.Plugin;
 import com.creatorfromhell.core.uapi.UPlugin;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 
-@Plugin(id = "the_new_economy", name = "The New Economy", version = "0.0.1.0",
-description = "A port of the feature-packed Bukkit economy plugin, The New Economy.",
+@Plugin(id = "universal_api", name = "UAPI", version = "0.0.0.1",
+description = "An API created to allow plugin authors to write once, support all.",
 url = "https://creatorfromhell.com",
 authors = {"creatorfromhell"})
 public class SpongePluginLoader implements UPluginLoader {
