@@ -9,6 +9,6 @@ public interface MetaHolder {
 	public List<MetaValue> getMeta();
 	public void addMeta(MetaValue value);
 	public void removeMeta(MetaValue value);
-	public void getMeta(String key);
-	public void getMeta(UPlugin owner);
+	public MetaValue getMeta(String key);
+	public List<MetaValue> getMeta(UPlugin owner);
 }

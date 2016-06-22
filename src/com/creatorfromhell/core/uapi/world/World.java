@@ -1,10 +1,21 @@
 package com.creatorfromhell.core.uapi.world;
 
-public class World {
+import java.util.ArrayList;
+import java.util.List;
+
+import com.creatorfromhell.core.uapi.UPlugin;
+import com.creatorfromhell.core.uapi.meta.MetaHolder;
+import com.creatorfromhell.core.uapi.meta.MetaValue;
+
+public class World implements MetaHolder {
+	
+	private List<MetaValue> metadata = new ArrayList<MetaValue>();
 	private String name;
+	private WorldBorder border;
 	
 	public World(String name) {
 		this.name = name;
+		this.border = new WorldBorder();
 	}
 	
 	@Override
@@ -29,5 +40,56 @@ public class World {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public WorldBorder getBorder() {
+		return border;
+	}
+
+	public void setBorder(WorldBorder border) {
+		this.border = border;
+	}
+
+	@Override
+	public List<MetaValue> getMeta() {
+		return metadata;
+	}
+
+	@Override
+	public void addMeta(MetaValue value) {
+		metadata.add(value);
+	}
+
+	@Override
+	public void removeMeta(MetaValue value) {
+		metadata.remove(value);
+	}
+
+	@Override
+	public MetaValue getMeta(String key) {
+		for(MetaValue v : metadata) {
+			if(v.getKey().equals(key)) {
+				return v;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public List<MetaValue> getMeta(UPlugin owner) {
+		if(owner == null) {
+			return metadata;
+		}
+		
+		List<MetaValue> owned = new ArrayList<MetaValue>();
+		
+		for(MetaValue v : metadata) {
+			if(v.getOwner().equals(owner)) {
+				owned.add(v);
+			}
+		}
+		
+		return owned;
+
 	}
 }
