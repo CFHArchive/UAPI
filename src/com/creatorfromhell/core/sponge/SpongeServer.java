@@ -14,6 +14,7 @@ public class SpongeServer extends UServer {
 	
 	public SpongeServer(UPluginLoader loader) {
 		super(loader);
+		//TODO: Add supported events.
 	}
 	
 	public boolean isSupported(String event) {

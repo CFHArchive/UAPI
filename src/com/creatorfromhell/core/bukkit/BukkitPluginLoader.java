@@ -4,14 +4,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.creatorfromhell.core.uapi.UPlugin;
 import com.creatorfromhell.core.uapi.UPluginLoader;
+import com.creatorfromhell.core.uapi.event.UEventFactory;
 
 public class BukkitPluginLoader extends JavaPlugin implements UPluginLoader {
 
 	UPlugin instance;
+	UEventFactory eventFactory;
 	
 	@Override
 	public void onEnable() {
 		BukkitServer server = new BukkitServer(this);
+		eventFactory = new UEventFactory(server);
 		
 		try {
 			//TODO: Configuration
@@ -35,5 +38,10 @@ public class BukkitPluginLoader extends JavaPlugin implements UPluginLoader {
 	@Override
 	public UPlugin getPluginInstance() {
 		return instance;
+	}
+
+	@Override
+	public UEventFactory getEventFactory() {
+		return eventFactory;
 	}
 }

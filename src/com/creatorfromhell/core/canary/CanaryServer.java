@@ -15,6 +15,7 @@ public class CanaryServer extends UServer {
 	
 	public CanaryServer(UPluginLoader loader) {
 		super(loader);
+		//TODO: Add supported events.
 	}
 	
 	public boolean isSupported(String event) {

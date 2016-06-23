@@ -4,14 +4,17 @@ import net.canarymod.plugin.Plugin;
 
 import com.creatorfromhell.core.uapi.UPlugin;
 import com.creatorfromhell.core.uapi.UPluginLoader;
+import com.creatorfromhell.core.uapi.event.UEventFactory;
 
 public class CanaryPluginLoader extends Plugin implements UPluginLoader {
 
 	UPlugin instance;
+	UEventFactory eventFactory;
 	
 	@Override
 	public void onEnable() {
 		CanaryServer server = new CanaryServer(this);
+		eventFactory = new UEventFactory(server);
 		
 		try {
 			//TODO: Configuration
@@ -46,6 +49,11 @@ public class CanaryPluginLoader extends Plugin implements UPluginLoader {
 	public boolean enable() {
 		onEnable();
 		return true;
+	}
+
+	@Override
+	public UEventFactory getEventFactory() {
+		return eventFactory;
 	}
 
 }

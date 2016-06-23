@@ -6,8 +6,10 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
+import com.creatorfromhell.core.bukkit.event.player.PlayerJoinListener;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
+import com.creatorfromhell.core.uapi.event.player.PlayerJoinEvent;
 
 public class BukkitServer extends UServer {
 	
@@ -15,6 +17,8 @@ public class BukkitServer extends UServer {
 
 	public BukkitServer(UPluginLoader loader) {
 		super(loader);
+		supported.put(PlayerJoinEvent.class.getName(), new PlayerJoinListener());
+		//TODO: Add supported events.
 	}
 	
 	public boolean isSupported(String event) {

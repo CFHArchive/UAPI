@@ -16,30 +16,38 @@ public class Player extends HumanEntity {
 	public String getDisplayName() {
 		return displayName;
 	}
+	
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
 	public float getSaturation() {
 		return saturation;
 	}
+	
 	public void setSaturation(float saturation) {
 		this.saturation = saturation;
 	}
+	
 	public int getFood() {
 		return food;
 	}
+	
 	public void setFood(int food) {
 		this.food = food;
 	}
+	
 	public boolean isFlightAllowed() {
 		return flightAllowed;
 	}
+	
 	public void setFlightAllowed(boolean flightAllowed) {
 		this.flightAllowed = flightAllowed;
 	}
+	
 	public boolean isFlying() {
 		return flying;
 	}
+	
 	public void setFlying(boolean flying) {
 		this.flying = flying;
 	}
