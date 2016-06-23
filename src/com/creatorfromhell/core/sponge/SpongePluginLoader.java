@@ -1,5 +1,10 @@
 package com.creatorfromhell.core.sponge;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import org.spongepowered.api.plugin.Plugin;
 
 import com.creatorfromhell.core.uapi.UPlugin;
@@ -19,17 +24,23 @@ public class SpongePluginLoader implements UPluginLoader {
 	public void onEnable() {
 		SpongeServer server = new SpongeServer(this);
 		eventFactory = new UEventFactory(server);
-		
+
+        InputStream in = getClass().getResourceAsStream("/main.ini");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		try {
-			//TODO: Configuration
-			Class<?> main = Class.forName("");
-			instance = (UPlugin)main.newInstance();
-			instance.onEnable(server);
+			String entry = reader.readLine().split("=")[0].trim();
+			Class<?> main = Class.forName(entry);
+			if(UPlugin.class.isAssignableFrom(main)) {
+				instance = (UPlugin)main.newInstance();
+				instance.onEnable(server);
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

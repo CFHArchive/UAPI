@@ -8,5 +8,9 @@ public abstract class UServer {
 		this.loader = loader;
 	}
 	
+	public UPluginLoader getLoader() {
+		return loader;
+	}
+	
 	public abstract void registerEvent(String event);
 }
