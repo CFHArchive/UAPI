@@ -1,6 +1,13 @@
 # UAPI
 UAPI aims to unify the various Minecraft Modern server APIs, and allow plugin developers the opportunity to write once support all. This project is mostly for experimental purposes, but if it ends up getting some use, so be it.
 
+#Supported APIs
+Bukkit - For all purposes of this project we'll be referring to Spigot's modified version of the Bukkit API as "Bukkit"
+
+Sponge - We'll have to find a way to allow plugin authors to not be limited by other APIs' limitations when it comes to Sponge
+
+CanaryLib - Not sure about the status of CanaryLib, there's a new server that implements it, but doesn't seem to be modifying the it for future versions(?)
+
 #Feature Implementation
 The various UAPI features will be implemented in a set order based on a determined priority set by the UAPI developers. This order is in an attempt to make UAPI more usable sooner.
 
