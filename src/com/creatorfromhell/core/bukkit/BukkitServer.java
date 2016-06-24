@@ -17,7 +17,7 @@ public class BukkitServer extends UServer {
 
 	public BukkitServer(UPluginLoader loader) {
 		super(loader);
-		supported.put(PlayerJoinEvent.class.getName(), new PlayerJoinListener());
+		supported.put(PlayerJoinEvent.class.getSimpleName(), new PlayerJoinListener());
 		//TODO: Add supported events.
 	}
 	

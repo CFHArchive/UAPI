@@ -11,6 +11,7 @@ public class PlayerJoinListener implements Listener {
 	
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
+		System.out.println("[UAPI]Player joined: " + event.getPlayer().getDisplayName());
 		Player p = new Player();
 		p.setId(event.getPlayer().getUniqueId());
 		p.setName(event.getPlayer().getName());

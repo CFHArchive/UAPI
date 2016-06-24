@@ -1,7 +1,7 @@
 #Plugin Data
 main: com.creatorfromhell.core.bukkit.BukkitPluginLoader
 
-General Data
+#General Data
 name: ExamplePlugin
 version: 0.0.1
 description: An example plugin using UAPI

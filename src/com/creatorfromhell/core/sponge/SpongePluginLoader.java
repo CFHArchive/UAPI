@@ -22,6 +22,7 @@ public class SpongePluginLoader implements UPluginLoader {
 	
 	@Override
 	public void onEnable() {
+		System.out.println("[UAPI]SpongeLoaderStarted");
 		SpongeServer server = new SpongeServer(this);
 		eventFactory = new UEventFactory(server);
 

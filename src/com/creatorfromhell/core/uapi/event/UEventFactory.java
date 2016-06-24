@@ -16,8 +16,8 @@ public class UEventFactory {
 	UServer server;
 	
 	public UEventFactory(UServer server) {
-		instance = this;
 		this.server = server;
+		instance = this;
 	}
 	
 	public static UEventFactory getInstance() {
@@ -25,10 +25,12 @@ public class UEventFactory {
 	}
 	
 	public void registerListener(UListener listener) {
+		System.out.println("[UAPI]Registering \"" + listener.getClass().getName() + "\" as an event listener.");
 		localRegister(listener);
 	}
 	
 	public void callEvent(UEvent event) {
+		System.out.println("[UAPI]Calling " + event.getName() + ".");
 		if(isListenedTo(event)) {
 			for(Map.Entry<UListener, Method> entry : listeners.get(event.getName()).entrySet()) {
 				try {
@@ -47,7 +49,7 @@ public class UEventFactory {
 	}
 	
 	private void addListener(String event, UListener listener, Method method) {
-		if(listeners.containsKey("event")) {
+		if(listeners.containsKey(event)) {
 			listeners.get(event).put(listener, method);
 			return;
 		}
@@ -56,14 +58,13 @@ public class UEventFactory {
 		listeners.put(event, temp);
 	}
 	
-	@SuppressWarnings("unchecked")
 	private void localRegister(UListener listener) {
 		for(Method m : listener.getClass().getMethods()) {
 			if(m.isAnnotationPresent(EventHandler.class)) {
 				if(m.getParameterCount() == 1) {
 					for(Class<?> parameter : m.getParameterTypes()) {
 						if(UEvent.class.isAssignableFrom(parameter)) {
-							String event = ((Class<UEvent>)parameter).getName();
+							String event = parameter.getSimpleName();
 							server.registerEvent(event);
 							addListener(event, listener, m);
 						}

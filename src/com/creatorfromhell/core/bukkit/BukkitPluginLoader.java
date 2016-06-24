@@ -18,13 +18,14 @@ public class BukkitPluginLoader extends JavaPlugin implements UPluginLoader {
 	
 	@Override
 	public void onEnable() {
+		System.out.println("[UAPI]BukkitLoader started.");
 		BukkitServer server = new BukkitServer(this);
 		eventFactory = new UEventFactory(server);
 
         InputStream in = getClass().getResourceAsStream("/main.ini");
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		try {
-			String entry = reader.readLine().split("=")[0].trim();
+			String entry = reader.readLine().split("=")[1].trim();
 			Class<?> main = Class.forName(entry);
 			if(UPlugin.class.isAssignableFrom(main)) {
 				instance = (UPlugin)main.newInstance();

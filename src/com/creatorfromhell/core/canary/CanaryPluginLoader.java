@@ -18,6 +18,7 @@ public class CanaryPluginLoader extends Plugin implements UPluginLoader {
 	
 	@Override
 	public void onEnable() {
+		System.out.println("[UAPI]CanaryLoader Started");
 		CanaryServer server = new CanaryServer(this);
 		eventFactory = new UEventFactory(server);
 
