@@ -6,6 +6,7 @@ import java.util.Map;
 import net.canarymod.Canary;
 import net.canarymod.plugin.PluginListener;
 
+import com.creatorfromhell.core.uapi.ServerType;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
 
@@ -20,6 +21,11 @@ public class CanaryServer extends UServer {
 	
 	public boolean isSupported(String event) {
 		return supported.containsKey(event);
+	}
+
+	@Override
+	public ServerType getServerType() {
+		return ServerType.SERVER_CANARY;
 	}
 
 	@Override

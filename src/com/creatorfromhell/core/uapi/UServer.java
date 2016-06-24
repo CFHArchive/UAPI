@@ -12,6 +12,8 @@ public abstract class UServer {
 		return loader;
 	}
 	
+	public abstract ServerType getServerType();
+	
 	//TODO: Custom event handling & registration.
 	
 	public abstract void registerListener(String event);

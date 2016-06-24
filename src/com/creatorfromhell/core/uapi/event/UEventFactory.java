@@ -10,7 +10,8 @@ import com.creatorfromhell.core.uapi.UServer;
 public class UEventFactory {
 	
 	//Format<EventName, Map<ListenerClass, EventHandler>>
-	public Map<String, Map<UListener, Method>> listeners = new HashMap<String, Map<UListener, Method>>();
+	public Map<String, Map<UListener, Method>> listeners
+	    = new HashMap<String, Map<UListener, Method>>();
 	
 	private static UEventFactory instance;
 	UServer server;
@@ -25,14 +26,18 @@ public class UEventFactory {
 	}
 	
 	public void registerListener(UListener listener) {
-		System.out.println("[UAPI]Registering \"" + listener.getClass().getName() + "\" as an event listener.");
+		System.out.println("[UAPI]Registering \""
+	      + listener.getClass().getName()
+	      + "\" as an event listener.");
+		
 		localRegister(listener);
 	}
 	
 	public void callEvent(UEvent event) {
 		System.out.println("[UAPI]Calling " + event.getName() + ".");
 		if(isListenedTo(event)) {
-			for(Map.Entry<UListener, Method> entry : listeners.get(event.getName()).entrySet()) {
+			for(Map.Entry<UListener, Method> entry
+			        : listeners.get(event.getName()).entrySet()) {
 				try {
 					entry.getValue().invoke(entry.getKey(), event);
 				} catch (IllegalAccessException

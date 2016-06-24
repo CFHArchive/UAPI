@@ -10,6 +10,7 @@ import com.creatorfromhell.core.bukkit.event.player.PlayerJoinListener;
 import com.creatorfromhell.core.bukkit.event.player.PlayerKickListener;
 import com.creatorfromhell.core.bukkit.event.player.PlayerLoginListener;
 import com.creatorfromhell.core.bukkit.event.player.PlayerQuitListener;
+import com.creatorfromhell.core.uapi.ServerType;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
 import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
@@ -31,6 +32,11 @@ public class BukkitServer extends UServer {
 	
 	public boolean isSupported(String event) {
 		return supported.containsKey(event);
+	}
+
+	@Override
+	public ServerType getServerType() {
+		return ServerType.SERVER_BUKKIT;
 	}
 
 	@Override
