@@ -65,7 +65,7 @@ public class UEventFactory {
 					for(Class<?> parameter : m.getParameterTypes()) {
 						if(UEvent.class.isAssignableFrom(parameter)) {
 							String event = parameter.getSimpleName();
-							server.registerEvent(event);
+							server.registerListener(event);
 							addListener(event, listener, m);
 						}
 					}

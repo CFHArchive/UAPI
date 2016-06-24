@@ -2,12 +2,12 @@ package com.creatorfromhell.core.uapi.event.player;
 
 import com.creatorfromhell.core.uapi.entity.living.player.Player;
 
-public class PlayerJoinEvent extends PlayerEvent {
+public class PlayerLeaveEvent extends PlayerEvent {
 	
 	private String message;
 
-	public PlayerJoinEvent(Player joined, String message) {
-		super(joined);
+	public PlayerLeaveEvent(Player left, String message) {
+		super(left);
 		this.message = message;
 	}
 

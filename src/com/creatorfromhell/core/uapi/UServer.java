@@ -12,5 +12,7 @@ public abstract class UServer {
 		return loader;
 	}
 	
-	public abstract void registerEvent(String event);
+	//TODO: Custom event handling & registration.
+	
+	public abstract void registerListener(String event);
 }

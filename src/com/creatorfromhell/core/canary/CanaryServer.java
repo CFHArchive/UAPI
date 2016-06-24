@@ -23,7 +23,7 @@ public class CanaryServer extends UServer {
 	}
 
 	@Override
-	public void registerEvent(String event) {
+	public void registerListener(String event) {
 		if(isSupported(event)) {
 			Canary.hooks().registerListener(supported.get(event), (CanaryPluginLoader)loader);
 		}

@@ -1,18 +1,36 @@
 package com.creatorfromhell.core.uapi.entity.living.player;
 
+import java.net.InetAddress;
+
 /*
  * TODO: Inventories & items.
+ * TODO: Chat
  * TODO: Sound support.
  * TODO: Experience.
  */
 public class Player extends HumanEntity {
 	
+	private InetAddress address;
 	private String displayName;
 	private float saturation;
 	private int food;
 	private boolean flightAllowed;
 	private boolean flying;
 	
+	public InetAddress getAddress() {
+		return address;
+	}
+	
+	public void setAddress(InetAddress address) {
+		if(this.address == null) {
+			this.address = address;
+		}
+	}
+	
+	public String getHostName() {
+		return address.getHostAddress();
+	}
+
 	public String getDisplayName() {
 		return displayName;
 	}

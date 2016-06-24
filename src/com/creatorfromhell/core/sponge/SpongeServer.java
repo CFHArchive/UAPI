@@ -22,7 +22,7 @@ public class SpongeServer extends UServer {
 	}
 
 	@Override
-	public void registerEvent(String event) {
+	public void registerListener(String event) {
 		if(isSupported(event)) {
 			Sponge.getGame().getEventManager().registerListeners((SpongePluginLoader)loader, supported.get(event));
 		}

@@ -7,9 +7,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
 import com.creatorfromhell.core.bukkit.event.player.PlayerJoinListener;
+import com.creatorfromhell.core.bukkit.event.player.PlayerKickListener;
+import com.creatorfromhell.core.bukkit.event.player.PlayerLoginListener;
+import com.creatorfromhell.core.bukkit.event.player.PlayerQuitListener;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
+import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerJoinEvent;
+import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
+import com.creatorfromhell.core.uapi.event.player.PlayerLeaveEvent;
 
 public class BukkitServer extends UServer {
 	
@@ -18,7 +24,9 @@ public class BukkitServer extends UServer {
 	public BukkitServer(UPluginLoader loader) {
 		super(loader);
 		supported.put(PlayerJoinEvent.class.getSimpleName(), new PlayerJoinListener());
-		//TODO: Add supported events.
+		supported.put(PlayerLeaveEvent.class.getSimpleName(), new PlayerQuitListener());
+		supported.put(PlayerKickEvent.class.getSimpleName(), new PlayerKickListener());
+		supported.put(PlayerConnectEvent.class.getSimpleName(), new PlayerLoginListener());
 	}
 	
 	public boolean isSupported(String event) {
@@ -26,7 +34,7 @@ public class BukkitServer extends UServer {
 	}
 
 	@Override
-	public void registerEvent(String event) {
+	public void registerListener(String event) {
 		if(isSupported(event)) {
 			Bukkit.getServer().getPluginManager().registerEvents(supported.get(event), (BukkitPluginLoader)loader);
 		}
