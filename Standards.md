@@ -1,6 +1,7 @@
 #CFH Java Coding Standards
 
 #File Structure & Formatting
+Here you'll find everything you'll need to know about the expected structure of your source file, and its formatting.
 
 ##Source File
 All source files must follow a specific naming convention, and structure.
@@ -68,3 +69,27 @@ The accepted method of declaration spacing is one space between the type and ide
 
 ####Location
 Declarations should be placed at the beginning of code blocks. This allows for better readability. Hiding a declaration behind a lower-level declaration should be avoided.
+
+#Soft Standards
+Standards located in this section are not organized in any particular fashion other than the fact they are currently not enforced, and are documented here for the sole purpose of allowing contributors to become informed of them before they are enforced.
+
+#Additions
+From time to time these standards may be updated, and it is solely the responsibility of each individual contributor to remain informed about any additions as they are communicated by means of; this document, developer blog posts, and/or community PSAs on the forums(coming soon). All new additions are provided as "Soft Standards", which are located in the Soft Standards section, when they are first implemented into the guidelines to allow for contributors to adjust accordingly before they are fully.
+
+##Proposals
+Addition proposals are accepted from anyone who feels that these standards don't adequately cover certain aspects of Java that is able to be formatted various ways. Proposals must follow a specific format to provide the most clear, understandable proposal.
+
+###Format
+The format to be used for proposals is as follows:
+
+```__Proposal Format  
+Section: The section this proposal corresponds to, or the name of the new section proposed.  
+Addresses: The Java feature this addresses, and the various non-recommended formats and ways each format could impair code readability, and flow.  
+Proposed: The proposed recommended format for this particular Java feature, and how it makes code more readable than the alternative formats.__```
+    
+
+##Last Modified
+The last date this document was modified. June 24th, 2016
+
+#Proposed Additions
+These are additions that have been proposed for the coding standards, but still have to be voted upon by the core UAPI developers. Addition proposals must follow the guidelines specified in Additions > Proposals section of these standards.
