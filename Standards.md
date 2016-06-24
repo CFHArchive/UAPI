@@ -82,10 +82,15 @@ Addition proposals are accepted from anyone who feels that these standards don't
 ###Format
 The format to be used for proposals is as follows:
 
-```__Proposal Format  
-Section: The section this proposal corresponds to, or the name of the new section proposed.  
-Addresses: The Java feature this addresses, and the various non-recommended formats and ways each format could impair code readability, and flow.  
-Proposed: The proposed recommended format for this particular Java feature, and how it makes code more readable than the alternative formats.__```
+```
+Proposal Format
+
+Section: The section this proposal corresponds to, or the name of the new section proposed.
+
+Addresses: The Java feature this addresses, and the various non-recommended formats and ways each format could impair code readability, and flow.
+
+Proposed: The proposed recommended format for this particular Java feature, and how it makes code more readable than the alternative formats.
+```
     
 
 ##Last Modified
