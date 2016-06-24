@@ -19,31 +19,35 @@ import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerLeaveEvent;
 
 public class CanaryServer extends UServer {
-	
-	Map<String, PluginListener> supported = new HashMap<String, PluginListener>();
-	
-	public CanaryServer(UPluginLoader loader) {
-		super(loader);
-		supported.put(PlayerConnectEvent.class.getSimpleName(), new PreConnectionListener());
-    supported.put(PlayerJoinEvent.class.getSimpleName(), new ConnectionListener());
+
+  Map<String, PluginListener> supported = new HashMap<String, PluginListener>();
+
+  public CanaryServer(UPluginLoader loader) {
+    super(loader);
+    supported.put(PlayerConnectEvent.class.getSimpleName(),
+                  new PreConnectionListener());
+    supported.put(PlayerJoinEvent.class.getSimpleName(),
+                  new ConnectionListener());
     supported.put(PlayerKickEvent.class.getSimpleName(), new KickListener());
-    supported.put(PlayerLeaveEvent.class.getSimpleName(), new DisconnectionListener());
-	}
-	
-	public boolean isSupported(String event) {
-		return supported.containsKey(event);
-	}
+    supported.put(PlayerLeaveEvent.class.getSimpleName(),
+                  new DisconnectionListener());
+  }
 
-	@Override
-	public ServerType getServerType() {
-		return ServerType.SERVER_CANARY;
-	}
+  public boolean isSupported(String event) {
+    return supported.containsKey(event);
+  }
 
-	@Override
-	public void registerListener(String event) {
-		if(isSupported(event)) {
-			Canary.hooks().registerListener(supported.get(event), (CanaryPluginLoader)loader);
-		}
-	}
+  @Override
+  public ServerType getServerType() {
+    return ServerType.SERVER_CANARY;
+  }
+
+  @Override
+  public void registerListener(String event) {
+    if (isSupported(event)) {
+      Canary.hooks().registerListener(supported.get(event),
+              (CanaryPluginLoader) loader);
+    }
+  }
 
 }

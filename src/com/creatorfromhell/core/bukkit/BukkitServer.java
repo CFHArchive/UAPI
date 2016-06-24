@@ -19,30 +19,36 @@ import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerLeaveEvent;
 
 public class BukkitServer extends UServer {
-	
-	Map<String, Listener> supported = new HashMap<String, Listener>();
 
-	public BukkitServer(UPluginLoader loader) {
-		super(loader);
-		supported.put(PlayerJoinEvent.class.getSimpleName(), new PlayerJoinListener());
-		supported.put(PlayerLeaveEvent.class.getSimpleName(), new PlayerQuitListener());
-		supported.put(PlayerKickEvent.class.getSimpleName(), new PlayerKickListener());
-		supported.put(PlayerConnectEvent.class.getSimpleName(), new PlayerLoginListener());
-	}
-	
-	public boolean isSupported(String event) {
-		return supported.containsKey(event);
-	}
+  Map<String, Listener> supported = new HashMap<String, Listener>();
 
-	@Override
-	public ServerType getServerType() {
-		return ServerType.SERVER_BUKKIT;
-	}
+  public BukkitServer(UPluginLoader loader) {
+    super(loader);
+    supported.put(PlayerJoinEvent.class.getSimpleName(),
+            new PlayerJoinListener());
+    supported.put(PlayerLeaveEvent.class.getSimpleName(),
+            new PlayerQuitListener());
+    supported.put(PlayerKickEvent.class.getSimpleName(),
+            new PlayerKickListener());
+    supported.put(PlayerConnectEvent.class.getSimpleName(),
+            new PlayerLoginListener());
+  }
 
-	@Override
-	public void registerListener(String event) {
-		if(isSupported(event)) {
-			Bukkit.getServer().getPluginManager().registerEvents(supported.get(event), (BukkitPluginLoader)loader);
-		}
-	}
+  public boolean isSupported(String event) {
+    return supported.containsKey(event);
+  }
+
+  @Override
+  public ServerType getServerType() {
+    return ServerType.SERVER_BUKKIT;
+  }
+
+  @Override
+  public void registerListener(String event) {
+    if (isSupported(event)) {
+      Bukkit.getServer()
+              .getPluginManager()
+              .registerEvents(supported.get(event), (BukkitPluginLoader) loader);
+    }
+  }
 }

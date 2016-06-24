@@ -11,9 +11,8 @@ import com.creatorfromhell.core.uapi.entity.living.player.Player;
 import com.creatorfromhell.core.uapi.event.UEventFactory;
 import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
 
-
 public class PreConnectionListener implements PluginListener {
-  
+
   @HookHandler
   public void onPreConnection(PreConnectionHook hook) {
     InetAddress address = null;
@@ -26,7 +25,8 @@ public class PreConnectionListener implements PluginListener {
     p.setId(hook.getUUID());
     p.setName(hook.getName());
     p.setDisplayName(hook.getName());
-    PlayerConnectEvent connectEvent = new PlayerConnectEvent(p, address, hook.getKickReason());
+    PlayerConnectEvent connectEvent = new PlayerConnectEvent(p, address,
+            hook.getKickReason());
 
     UEventFactory.getInstance().callEvent(connectEvent);
   }

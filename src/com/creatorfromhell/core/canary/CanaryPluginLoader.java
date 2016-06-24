@@ -13,59 +13,59 @@ import com.creatorfromhell.core.uapi.event.UEventFactory;
 
 public class CanaryPluginLoader extends Plugin implements UPluginLoader {
 
-	UPlugin instance;
-	UEventFactory eventFactory;
-	
-	@Override
-	public void onEnable() {
-		System.out.println("[UAPI]CanaryLoader Started");
-		CanaryServer server = new CanaryServer(this);
-		eventFactory = new UEventFactory(server);
+  UPlugin instance;
+  UEventFactory eventFactory;
 
-        InputStream in = getClass().getResourceAsStream("/main.ini");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-		try {
-			String entry = reader.readLine().split("=")[0].trim();
-			Class<?> main = Class.forName(entry);
-			if(UPlugin.class.isAssignableFrom(main)) {
-				instance = (UPlugin)main.newInstance();
-				instance.onEnable(server);
-			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+  @Override
+  public void onEnable() {
+    System.out.println("[UAPI]CanaryLoader Started");
+    CanaryServer server = new CanaryServer(this);
+    eventFactory = new UEventFactory(server);
 
-	@Override
-	public void onDisable() {
-		instance.onDisable();
-	}
+    InputStream in = getClass().getResourceAsStream("/main.ini");
+    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+    try {
+      String entry = reader.readLine().split("=")[0].trim();
+      Class<?> main = Class.forName(entry);
+      if (UPlugin.class.isAssignableFrom(main)) {
+        instance = (UPlugin) main.newInstance();
+        instance.onEnable(server);
+      }
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    } catch (InstantiationException e) {
+      e.printStackTrace();
+    } catch (IllegalAccessException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
-	@Override
-	public UPlugin getPluginInstance() {
-		return instance;
-	}
+  @Override
+  public void onDisable() {
+    instance.onDisable();
+  }
 
-	@Override
-	public void disable() {
-		onDisable();
-	}
+  @Override
+  public UPlugin getPluginInstance() {
+    return instance;
+  }
 
-	@Override
-	public boolean enable() {
-		onEnable();
-		return true;
-	}
+  @Override
+  public void disable() {
+    onDisable();
+  }
 
-	@Override
-	public UEventFactory getEventFactory() {
-		return eventFactory;
-	}
+  @Override
+  public boolean enable() {
+    onEnable();
+    return true;
+  }
+
+  @Override
+  public UEventFactory getEventFactory() {
+    return eventFactory;
+  }
 
 }
