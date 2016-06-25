@@ -6,6 +6,7 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
+import com.creatorfromhell.core.bukkit.conversion.BukkitConverter;
 import com.creatorfromhell.core.bukkit.event.player.PlayerJoinListener;
 import com.creatorfromhell.core.bukkit.event.player.PlayerKickListener;
 import com.creatorfromhell.core.bukkit.event.player.PlayerLoginListener;
@@ -13,6 +14,7 @@ import com.creatorfromhell.core.bukkit.event.player.PlayerQuitListener;
 import com.creatorfromhell.core.uapi.ServerType;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
+import com.creatorfromhell.core.uapi.conversion.Converter;
 import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerJoinEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
@@ -21,6 +23,7 @@ import com.creatorfromhell.core.uapi.event.player.PlayerLeaveEvent;
 public class BukkitServer extends UServer {
 
   Map<String, Listener> supported = new HashMap<String, Listener>();
+  final BukkitConverter converter = new BukkitConverter();
 
   public BukkitServer(UPluginLoader loader) {
     super(loader);
@@ -41,6 +44,11 @@ public class BukkitServer extends UServer {
   @Override
   public ServerType getServerType() {
     return ServerType.SERVER_BUKKIT;
+  }
+
+  @Override
+  public Converter getConverter() {
+    return converter;
   }
 
   @Override

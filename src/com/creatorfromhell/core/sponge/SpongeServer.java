@@ -12,6 +12,7 @@ import com.creatorfromhell.core.sponge.event.player.PlayerQuitListener;
 import com.creatorfromhell.core.uapi.ServerType;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
+import com.creatorfromhell.core.uapi.conversion.Converter;
 import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerJoinEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
@@ -40,6 +41,12 @@ public class SpongeServer extends UServer {
   @Override
   public ServerType getServerType() {
     return ServerType.SERVER_SPONGE;
+  }
+
+  @Override
+  public Converter getConverter() {
+    //TODO: Sponge converter/
+    return null;
   }
 
   @Override

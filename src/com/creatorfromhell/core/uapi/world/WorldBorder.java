@@ -3,17 +3,17 @@ package com.creatorfromhell.core.uapi.world;
 public class WorldBorder {
 
   private Vector center;
-  private int radius;
+  private double radius;
 
   public WorldBorder() {
     this(29999984, Vector.zero);
   }
 
-  public WorldBorder(int radius) {
+  public WorldBorder(double radius) {
     this(radius, Vector.zero);
   }
 
-  public WorldBorder(int radius, Vector center) {
+  public WorldBorder(double radius, Vector center) {
     this.radius = radius;
     this.center = center;
   }
@@ -26,11 +26,11 @@ public class WorldBorder {
     this.center = center;
   }
 
-  public int getRadius() {
+  public double getRadius() {
     return radius;
   }
 
-  public void setRadius(int radius) {
+  public void setRadius(double radius) {
     this.radius = radius;
   }
 }

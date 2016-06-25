@@ -13,6 +13,7 @@ import com.creatorfromhell.core.canary.event.player.PreConnectionListener;
 import com.creatorfromhell.core.uapi.ServerType;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
+import com.creatorfromhell.core.uapi.conversion.Converter;
 import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerJoinEvent;
 import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
@@ -43,11 +44,16 @@ public class CanaryServer extends UServer {
   }
 
   @Override
+  public Converter getConverter() {
+    //TODO: Canary converter/
+    return null;
+  }
+
+  @Override
   public void registerListener(String event) {
     if (isSupported(event)) {
       Canary.hooks().registerListener(supported.get(event),
               (CanaryPluginLoader) loader);
     }
   }
-
 }

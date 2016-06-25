@@ -71,4 +71,28 @@ public class Location {
   public void setYaw(float yaw) {
     this.yaw = yaw;
   }
+
+  public double getX() {
+    return coordinates.getX();
+  }
+
+  public void setX(double x) {
+    coordinates.setX(x);
+  }
+
+  public double getY() {
+    return coordinates.getY();
+  }
+
+  public void setY(double y) {
+    coordinates.setY(y);
+  }
+
+  public double getZ() {
+    return coordinates.getZ();
+  }
+
+  public void setZ(double z) {
+    coordinates.setZ(z);
+  }
 }
