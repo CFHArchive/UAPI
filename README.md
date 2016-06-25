@@ -8,6 +8,8 @@ Sponge - We'll have to find a way to allow plugin authors to not be limited by o
 
 CanaryLib - Added for nostalgic purposes, and for any servers that may still run CanaryLib, but want access to more plugins.
 
+Know of an API that you want to be supported by UAPI? Please open a new issue with the API's details.
+
 #Feature Implementation
 The various UAPI features will be implemented in a set order based on a determined priority set by the UAPI developers. This order is in an attempt to make UAPI more usable sooner.
 

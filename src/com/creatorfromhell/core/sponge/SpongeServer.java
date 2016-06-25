@@ -5,9 +5,17 @@ import java.util.Map;
 
 import org.spongepowered.api.Sponge;
 
+import com.creatorfromhell.core.sponge.event.player.PlayerJoinListener;
+import com.creatorfromhell.core.sponge.event.player.PlayerKickListener;
+import com.creatorfromhell.core.sponge.event.player.PlayerLoginListener;
+import com.creatorfromhell.core.sponge.event.player.PlayerQuitListener;
 import com.creatorfromhell.core.uapi.ServerType;
 import com.creatorfromhell.core.uapi.UPluginLoader;
 import com.creatorfromhell.core.uapi.UServer;
+import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
+import com.creatorfromhell.core.uapi.event.player.PlayerJoinEvent;
+import com.creatorfromhell.core.uapi.event.player.PlayerKickEvent;
+import com.creatorfromhell.core.uapi.event.player.PlayerLeaveEvent;
 
 public class SpongeServer extends UServer {
 
@@ -15,7 +23,14 @@ public class SpongeServer extends UServer {
 
   public SpongeServer(UPluginLoader loader) {
     super(loader);
-    // TODO: Add supported events.
+    supported.put(PlayerJoinEvent.class.getSimpleName(),
+            new PlayerJoinListener());
+    supported.put(PlayerLeaveEvent.class.getSimpleName(),
+            new PlayerQuitListener());
+    supported.put(PlayerKickEvent.class.getSimpleName(),
+            new PlayerKickListener());
+    supported.put(PlayerConnectEvent.class.getSimpleName(),
+            new PlayerLoginListener());
   }
 
   public boolean isSupported(String event) {
