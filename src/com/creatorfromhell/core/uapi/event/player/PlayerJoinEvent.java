@@ -1,12 +1,12 @@
 package com.creatorfromhell.core.uapi.event.player;
 
-import com.creatorfromhell.core.uapi.entity.living.player.Player;
+import java.util.UUID;
 
 public class PlayerJoinEvent extends PlayerEvent {
 
   private String message;
 
-  public PlayerJoinEvent(Player joined, String message) {
+  public PlayerJoinEvent(UUID joined, String message) {
     super(joined);
     this.message = message;
   }

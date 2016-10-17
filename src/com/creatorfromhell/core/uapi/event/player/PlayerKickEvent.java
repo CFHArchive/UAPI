@@ -1,13 +1,13 @@
 package com.creatorfromhell.core.uapi.event.player;
 
-import com.creatorfromhell.core.uapi.entity.living.player.Player;
+import java.util.UUID;
 
 public class PlayerKickEvent extends PlayerEvent {
 
   private String message;
   private String reason;
 
-  public PlayerKickEvent(Player kicked, String message, String reason) {
+  public PlayerKickEvent(UUID kicked, String message, String reason) {
     super(kicked);
     this.message = message;
     this.reason = reason;

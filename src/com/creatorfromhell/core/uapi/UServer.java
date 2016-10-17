@@ -18,6 +18,7 @@ public abstract class UServer {
   public abstract ServerType getServerType();
 
   // TODO: Custom event handling & registration.
+  // TODO: Command handling
 
   public abstract void registerListener(String event);
 }

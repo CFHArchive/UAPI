@@ -1,12 +1,12 @@
 package com.creatorfromhell.core.uapi.event.player;
 
-import com.creatorfromhell.core.uapi.entity.living.player.Player;
+import java.util.UUID;
 
 public class PlayerLeaveEvent extends PlayerEvent {
 
   private String message;
 
-  public PlayerLeaveEvent(Player left, String message) {
+  public PlayerLeaveEvent(UUID left, String message) {
     super(left);
     this.message = message;
   }

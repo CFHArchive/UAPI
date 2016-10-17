@@ -1,15 +1,13 @@
 package com.creatorfromhell.core.canary.event.player;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
+import com.creatorfromhell.core.uapi.event.UEventFactory;
+import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
 import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.PreConnectionHook;
 import net.canarymod.plugin.PluginListener;
 
-import com.creatorfromhell.core.uapi.entity.living.player.Player;
-import com.creatorfromhell.core.uapi.event.UEventFactory;
-import com.creatorfromhell.core.uapi.event.player.PlayerConnectEvent;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class PreConnectionListener implements PluginListener {
 
@@ -21,11 +19,7 @@ public class PreConnectionListener implements PluginListener {
     } catch (UnknownHostException e) {
       e.printStackTrace();
     }
-    Player p = new Player();
-    p.setId(hook.getUUID());
-    p.setName(hook.getName());
-    p.setDisplayName(hook.getName());
-    PlayerConnectEvent connectEvent = new PlayerConnectEvent(p, address,
+    PlayerConnectEvent connectEvent = new PlayerConnectEvent(hook.getUUID(), address,
             hook.getKickReason());
 
     UEventFactory.getInstance().callEvent(connectEvent);

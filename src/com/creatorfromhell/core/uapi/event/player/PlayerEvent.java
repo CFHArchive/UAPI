@@ -1,17 +1,18 @@
 package com.creatorfromhell.core.uapi.event.player;
 
-import com.creatorfromhell.core.uapi.entity.living.player.Player;
 import com.creatorfromhell.core.uapi.event.UEvent;
+
+import java.util.UUID;
 
 public class PlayerEvent extends UEvent {
 
-  protected Player involved;
+  protected UUID player;
 
-  public PlayerEvent(Player involved) {
-    this.involved = involved;
+  public PlayerEvent(UUID player) {
+    this.player = player;
   }
 
-  public final Player getPlayer() {
-    return involved;
+  public final UUID getPlayer() {
+    return player;
   }
 }

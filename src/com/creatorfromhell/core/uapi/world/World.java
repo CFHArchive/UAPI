@@ -1,15 +1,15 @@
 package com.creatorfromhell.core.uapi.world;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.creatorfromhell.core.uapi.UPlugin;
 import com.creatorfromhell.core.uapi.meta.MetaHolder;
 import com.creatorfromhell.core.uapi.meta.MetaValue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class World implements MetaHolder {
 
-  private List<MetaValue> metadata = new ArrayList<MetaValue>();
+  private List<MetaValue> metadata = new ArrayList<>();
   private String name;
   private WorldBorder border;
 
