@@ -25,7 +25,6 @@ public class World implements MetaHolder {
 
     final World compare = (World) obj;
     if (!name.equals(compare.getName())) return false;
-
     return true;
   }
 

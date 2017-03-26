@@ -28,7 +28,6 @@ public class Vector {
     if (Double.compare(x, compare.getX()) != 0) return false;
     if (Double.compare(y, compare.getY()) != 0) return false;
     if (Double.compare(z, compare.getZ()) != 0) return false;
-
     return true;
   }
 
