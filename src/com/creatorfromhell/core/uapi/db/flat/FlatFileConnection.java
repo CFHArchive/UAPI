@@ -25,12 +25,12 @@ public class FlatFileConnection {
 
   public void close() {
     try {
-      if (ois != null) {
+      if(ois != null) {
         ois.close();
         ois = null;
       }
 
-      if (oos != null) {
+      if(oos != null) {
         oos.flush();
         oos.close();
         oos = null;
@@ -48,8 +48,7 @@ public class FlatFileConnection {
   }
 
   /**
-   * @param fileName
-   *          the fileName to set
+   * @param fileName the fileName to set
    */
   public void setFile(String fileName) {
     file = new File(fileName);
@@ -59,7 +58,7 @@ public class FlatFileConnection {
    * @return the ois
    */
   public ObjectInputStream getOIS() {
-    if (ois == null) {
+    if(ois == null) {
       try {
         ois = new ObjectInputStream(new FileInputStream(file));
       } catch (FileNotFoundException e) {
@@ -72,8 +71,7 @@ public class FlatFileConnection {
   }
 
   /**
-   * @param ois
-   *          the ois to set
+   * @param ois the ois to set
    */
   public void setOIS(ObjectInputStream ois) {
     this.ois = ois;
@@ -83,7 +81,7 @@ public class FlatFileConnection {
    * @return the oos
    */
   public ObjectOutputStream getOOS() {
-    if (oos == null) {
+    if(oos == null) {
       try {
         oos = new ObjectOutputStream(new FileOutputStream(file));
       } catch (FileNotFoundException e) {
@@ -96,8 +94,7 @@ public class FlatFileConnection {
   }
 
   /**
-   * @param oos
-   *          the oos to set
+   * @param oos the oos to set
    */
   public void setOOS(ObjectOutputStream oos) {
     this.oos = oos;

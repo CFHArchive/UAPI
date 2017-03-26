@@ -1,8 +1,8 @@
 package com.creatorfromhell.core.uapi.db;
 
-import java.io.File;
-
 import com.creatorfromhell.core.uapi.db.flat.FlatFileConnection;
+
+import java.io.File;
 
 /**
  * 
@@ -13,6 +13,10 @@ public class FlatFile extends Database {
 
   private String file;
   private FlatFileConnection connection;
+
+  public FlatFile(String directory, String file) {
+    this(directory + File.separator + file);
+  }
 
   public FlatFile(String file) {
     this.file = file;
@@ -26,14 +30,14 @@ public class FlatFile extends Database {
 
   @Override
   public void connect() {
-    if (connection == null) {
+    if(connection == null) {
       connection = new FlatFileConnection(file);
     }
   }
 
   @Override
   public FlatFileConnection connection() {
-    if (connection == null || !connected()) {
+    if(connection == null || !connected()) {
       connect();
     }
     return connection;
