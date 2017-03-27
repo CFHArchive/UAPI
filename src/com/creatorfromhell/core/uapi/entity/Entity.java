@@ -10,6 +10,7 @@ import java.util.UUID;
  */
 public interface Entity {
     public int getEntityId();
+    public EntityType getType();
     public UUID getUniqueId();
     public String getName();
     public Location getLocation();

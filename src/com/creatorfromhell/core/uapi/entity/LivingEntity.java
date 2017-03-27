@@ -7,6 +7,7 @@ import com.creatorfromhell.core.uapi.world.Location;
  */
 public interface LivingEntity extends Entity {
     public Entity getDamager();
+    public Entity getKiller();
     public int getHealth();
     public void setHealth(int health);
     //TODO: Attributes, Potions

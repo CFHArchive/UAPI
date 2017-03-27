@@ -1,90 +1,27 @@
 package com.creatorfromhell.core.uapi.world;
 
 import com.creatorfromhell.core.uapi.UPlugin;
+import com.creatorfromhell.core.uapi.entity.Entity;
+import com.creatorfromhell.core.uapi.entity.LivingEntity;
+import com.creatorfromhell.core.uapi.entity.Player;
 import com.creatorfromhell.core.uapi.meta.MetaHolder;
 import com.creatorfromhell.core.uapi.meta.MetaValue;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
-public class World implements MetaHolder {
-
-  private List<MetaValue> metadata = new ArrayList<>();
-  private String name;
-  private WorldBorder border;
-
-  public World(String name) {
-    this.name = name;
-    this.border = new WorldBorder();
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
-
-    final World compare = (World) obj;
-    if (!name.equals(compare.getName())) return false;
-    return true;
-  }
-
-  @Override
-  public String toString() {
-    return "name=" + name;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public WorldBorder getBorder() {
-    return border;
-  }
-
-  public void setBorder(WorldBorder border) {
-    this.border = border;
-  }
-
-  @Override
-  public List<MetaValue> getMeta() {
-    return metadata;
-  }
-
-  @Override
-  public void addMeta(MetaValue value) {
-    metadata.add(value);
-  }
-
-  @Override
-  public void removeMeta(MetaValue value) {
-    metadata.remove(value);
-  }
-
-  @Override
-  public MetaValue getMeta(String key) {
-    for (MetaValue v : metadata) {
-      if (v.getKey().equals(key)) { return v; }
-    }
-    return null;
-  }
-
-  @Override
-  public List<MetaValue> getMeta(UPlugin owner) {
-    if (owner == null) { return metadata; }
-
-    List<MetaValue> owned = new ArrayList<MetaValue>();
-
-    for (MetaValue v : metadata) {
-      if (v.getOwner().equals(owner)) {
-        owned.add(v);
-      }
-    }
-
-    return owned;
-
-  }
+public interface World extends MetaHolder {
+  public String getName();
+  public UUID getUniqueId();
+  public Dimension getDimension();
+  public WorldType getType();
+  public long getTime();
+  public void setTime(long time);
+  public List<Entity> getEntities();
+  public List<LivingEntity> getLiving();
+  public List<Player> getPlayers();
+  public void broadcast(String message);
+  public void broadcast(String message, String permission);
 }
