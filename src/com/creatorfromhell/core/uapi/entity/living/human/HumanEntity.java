@@ -1,6 +1,7 @@
-package com.creatorfromhell.core.uapi.entity;
+package com.creatorfromhell.core.uapi.entity.living.human;
 
 import com.creatorfromhell.core.uapi.GameMode;
+import com.creatorfromhell.core.uapi.entity.LivingEntity;
 
 /**
  * Created by Daniel "creatorfromhell" on 3/26/2017.

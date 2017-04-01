@@ -1,6 +1,6 @@
 package com.creatorfromhell.core.uapi;
 
-import com.creatorfromhell.core.uapi.entity.Player;
+import com.creatorfromhell.core.uapi.entity.living.human.Player;
 import com.creatorfromhell.core.uapi.world.World;
 
 import java.util.List;

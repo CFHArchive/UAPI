@@ -1,6 +1,5 @@
-package com.creatorfromhell.core.uapi.entity;
+package com.creatorfromhell.core.uapi.entity.living.human;
 
-import com.creatorfromhell.core.uapi.GameMode;
 import com.creatorfromhell.core.uapi.world.Location;
 
 /**
