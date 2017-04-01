@@ -5,7 +5,7 @@ import com.creatorfromhell.core.uapi.entity.Animal;
 /**
  * Created by Daniel "creatorfromhell" on 4/1/2017.
  */
-public interface AbstractHorse extends Animal {
-  public double getJumpStrength();
-  public void setJumpStrength(double jumpStrength);
+public interface PolarBear extends Animal {
+  public boolean isStanding();
+  public void setStanding(boolean standing);
 }
