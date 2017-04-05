@@ -11,8 +11,12 @@ import java.util.UUID;
 public interface World extends MetaHolder {
   public String getName();
   public UUID getUniqueId();
+  public long getSeed();
+  public boolean getPVP();
   public Dimension getDimension();
   public WorldType getType();
+  public WorldBorder getBorder();
+  public void setBorder(WorldBorder worldBorder);
   public long getTime();
   public void setTime(long time);
   public List<Entity> getEntities();
