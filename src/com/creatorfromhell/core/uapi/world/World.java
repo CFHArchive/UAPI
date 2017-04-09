@@ -1,5 +1,6 @@
 package com.creatorfromhell.core.uapi.world;
 
+import com.creatorfromhell.core.uapi.block.Block;
 import com.creatorfromhell.core.uapi.entity.Entity;
 import com.creatorfromhell.core.uapi.entity.LivingEntity;
 import com.creatorfromhell.core.uapi.entity.living.human.Player;
@@ -24,4 +25,6 @@ public interface World extends MetaHolder {
   public List<Player> getPlayers();
   public void broadcast(String message);
   public void broadcast(String message, String permission);
+  public Block getBlockAt(Location location);
+  public Block getBlockAt(int x, int y, int z);
 }

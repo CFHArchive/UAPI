@@ -1,5 +1,3 @@
 package com.creatorfromhell.core.uapi.event;
 
-public interface UListener {
-
-}
+public interface UListener {}
