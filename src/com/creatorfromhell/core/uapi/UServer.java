@@ -11,7 +11,6 @@ public interface UServer {
   public UPluginLoader getLoader();
   public ServerType getServerType();
   // TODO: Custom event handling & registration.
-  // TODO: Command handling
   public CommandHandler getCommandHandler();
   public void registerListener(String event);
   public Player getPlayer(String name);
